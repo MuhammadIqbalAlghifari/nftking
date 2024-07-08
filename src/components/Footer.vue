@@ -36,7 +36,7 @@ const animateOnDekstop = () => {
         scrub: false,
         toggleActions: 'play reverse play reverse'
     }}) 
-    gsap.fromTo(footerSentence.value.children, {opacity: 0, y: 50}, {opacity: 1, y: 0, duration: 1, delay: 0.3, ease: 'power3.out', scrollTrigger: {
+    gsap.fromTo(footerSentence.value.children, {opacity: 0}, {opacity: 1, duration: 1, delay: 0.3, ease: 'power3.out', scrollTrigger: {
         trigger: footerSentence.value.children,
         start: 'top bottom',
         end: 'bottom top',
@@ -60,7 +60,7 @@ const animateOnMobile = () => {
         scrub: false,
         toggleActions: 'play reverse play reverse'
     }}) 
-    gsap.fromTo(footerSentence.value, {opacity: 0, y: 10}, {opacity: 1, y: 0, duration: 1, delay: 0.3, ease: 'power3.out', scrollTrigger: {
+    gsap.fromTo(footerSentence.value, {opacity: 0}, {opacity: 1, duration: 1, delay: 0.3, ease: 'power3.out', scrollTrigger: {
         trigger: footerSentence.value,
         start: 'top bottom',
         end: 'bottom top',
