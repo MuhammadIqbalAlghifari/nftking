@@ -36,17 +36,65 @@ const image = ref(null)
 const sponsor = ref(null)
 
 const animateOnDekstop = () => {
-    gsap.fromTo(leftSection.value.children, {opacity: 0}, {opacity: 1, duration: 1, stagger: 0.3, delay: 0.5, ease: 'power3.out'})   
-    gsap.fromTo(rightSection.value, {opacity: 0}, {opacity: 1, duration: 1, ease: 'power3.out'}) 
-    gsap.fromTo(image.value.children, {opacity: 0}, {opacity: 1, duration: 1, stagger: 0.3, delay: 1, ease: 'power3.out'}) 
-    gsap.fromTo(sponsor.value, {opacity: 0, y: 100}, {opacity: 1, y:0, duration: 1, stagger: 0.3, delay: 1, ease: 'power3.out'})
+    gsap.fromTo(leftSection.value.children, {opacity: 0}, {opacity: 1, duration: 1, stagger: 0.3, delay: 0.5, ease: 'power3.out', scrollTrigger: {
+        trigger: leftSection.value.children,
+        start: 'top bottom',
+        end: "bottom top",
+        scrub: false,
+        toggleActions: 'play reverse play reverse'
+    }})
+    gsap.fromTo(rightSection.value, {opacity: 0}, {opacity: 1, duration: 1, ease: 'power3.out', scrollTrigger: {
+        trigger: rightSection.value,
+        start: 'top bottom',
+        end: "bottom top",
+        scrub: false,
+        toggleActions: 'play reverse play reverse'
+    }}) 
+    gsap.fromTo(image.value.children, {opacity: 0, y: 50}, {opacity: 1, y: 0, duration: 1, stagger: 0.3, delay: 1, ease: 'power3.out', scrollTrigger: {
+        trigger: image.value.children,
+        start: 'top bottom',
+        end: "bottom top",
+        scrub: false,
+        toggleActions: 'play reverse play reverse'
+    }}) 
+    gsap.fromTo(sponsor.value, {opacity: 0, y: 100}, {opacity: 1, y:0, duration: 1, stagger: 0.3, delay: 1, ease: 'power3.out', scrollTrigger: {
+        trigger: sponsor.value,
+        start: 'top bottom',
+        end: "bottom top",
+        scrub: false,
+        toggleActions: 'play reverse play reverse'
+    }})
 }
 
 const animateOnMobile = () => {
-    gsap.fromTo(leftSection.value.children, {opacity: 0}, {opacity: 1, duration: 1, stagger: 0.3, delay: 0.5, ease: 'power3.out'})   
-    gsap.fromTo(rightSection.value, {opacity: 0}, {opacity: 1, duration: 1, ease: 'power3.out'}) 
-    gsap.fromTo(image.value.children, {opacity: 0, y: 50}, {opacity: 1, y: 0, duration: 1, stagger: 0.3, delay: 1, ease: 'power3.out'}) 
-    gsap.fromTo(sponsor.value, {opacity: 0, y: 100}, {opacity: 1, y:0, duration: 1, stagger: 0.3, delay: 1, ease: 'power3.out'})
+    gsap.fromTo(leftSection.value.children, {opacity: 0}, {opacity: 1, duration: 1, stagger: 0.3, delay: 0.5, ease: 'power3.out', scrollTrigger: {
+        trigger: leftSection.value.children,
+        start: 'top bottom',
+        end: "bottom top",
+        scrub: false,
+        toggleActions: 'play reverse play reverse'
+    }})   
+    gsap.fromTo(rightSection.value, {opacity: 0}, {opacity: 1, duration: 1, ease: 'power3.out', scrollTrigger: {
+        trigger: rightSection.value,
+        start: 'top bottom',
+        end: "bottom top",
+        scrub: false,
+        toggleActions: 'play reverse play reverse'
+    }}) 
+    gsap.fromTo(image.value.children, {opacity: 0, y: 50}, {opacity: 1, y: 0, duration: 1, stagger: 0.3, delay: 1, ease: 'power3.out', scrollTrigger: {
+        trigger: image.value.children,
+        start: 'top bottom',
+        end: "bottom top",
+        scrub: false,
+        toggleActions: 'play reverse play reverse'
+    }})
+    gsap.fromTo(sponsor.value, {opacity: 0, y: 100}, {opacity: 1, y:0, duration: 1, stagger: 0.3, delay: 1, ease: 'power3.out', scrollTrigger: {
+        trigger: sponsor.value,
+        start: 'top bottom',
+        end: "bottom top",
+        scrub: false,
+        toggleActions: 'play reverse play reverse'
+    }})
 }
 
 const isDekstop = window.matchMedia("(min-width: 1024px)").matches
