@@ -4,21 +4,21 @@
     </div>
     <main class="xl:max-w-7xl xl:mx-auto md:p-14 lg:px-16 md:py-24 py-20 xl:px-0 flex flex-col justify-center lg:gap-y-20 gap-y-10 items-center h-full px-5 md:pt-20 pt-16">
         <div class="flex justify-between w-full flex-col items-center gap-y-5 lg:gap-y-10">
-            <h1 class="xl:text-6xl md:text-4xl text-2xl lg:text-start text-center leading-snug lg:leading-snug font-bold text-white" style="font-family: 'Poppins';">Explore Marketplace</h1>
-            <div class="flex xl:justify-between justify-center gap-2 lg:gap-2 items-center max-w-7xl mx-auto flex-wrap w-full">
-                <button class="transition-all duration-300 tracking-wide xl:text-base md:text-sm text-xs text-white rounded-full border-[#3633D0] border-[2px] bg-transparent px-6 py-2">Collectibles</button>
-                <button class="transition-all duration-300 tracking-wide xl:text-base md:text-sm text-xs text-white rounded-full bg-gradient-to-br from-[#89C6FF] to-[#3633D0] px-6 py-2">Art</button>
-                <button class="transition-all duration-300 tracking-wide xl:text-base md:text-sm text-xs text-white rounded-full border-[#3633D0] border-[2px] bg-transparent hidden md:flex px-6 py-2">Gaming</button>
-                <button class="transition-all duration-300 tracking-wide xl:text-base md:text-sm text-xs text-white rounded-full border-[#3633D0] border-[2px] bg-transparent hidden md:flex px-6 py-2">Sports</button>
-                <button class="transition-all duration-300 tracking-wide xl:text-base md:text-sm text-xs text-white rounded-full border-[#3633D0] border-[2px] bg-transparent hidden md:flex px-6 py-2">Photography</button>
-                <button class="transition-all duration-300 tracking-wide xl:text-base md:text-sm text-xs text-white rounded-full border-[#3633D0] border-[2px] bg-transparent hidden md:flex px-6 py-2">Music</button>
-                <button class="transition-all duration-300 tracking-wide xl:text-base md:text-sm text-xs text-white rounded-full border-[#3633D0] border-[2px] bg-transparent hidden md:flex px-6 py-2">Virtual Worlds</button>
-                <button class="transition-all duration-300 tracking-wide xl:text-base md:text-sm text-xs text-white rounded-full border-[#3633D0] border-[2px] bg-transparent hidden md:flex px-6 py-2">Trading Cards</button>
-                <button class="transition-all duration-300 tracking-wide xl:text-base md:text-sm text-xs text-white rounded-full border-[#3633D0] border-[2px] bg-transparent flex md:hidden px-6 py-2">+6</button>
+            <h1 ref="tittleSection" class="xl:text-6xl md:text-4xl text-2xl lg:text-start text-center leading-snug lg:leading-snug font-bold text-white" style="font-family: 'Poppins';">Explore Marketplace</h1>
+            <div ref="buttonSection" class="flex xl:justify-between justify-center gap-2 lg:gap-2 items-center max-w-7xl mx-auto flex-wrap w-full">
+                <button class="tracking-wide xl:text-base md:text-sm text-xs text-white rounded-full border-[#3633D0] border-[2px] bg-transparent px-6 py-2">Collectibles</button>
+                <button class="tracking-wide xl:text-base md:text-sm text-xs text-white rounded-full bg-gradient-to-br from-[#89C6FF] to-[#3633D0] px-6 py-2">Art</button>
+                <button class="tracking-wide xl:text-base md:text-sm text-xs text-white rounded-full border-[#3633D0] border-[2px] bg-transparent hidden md:flex px-6 py-2">Gaming</button>
+                <button class="tracking-wide xl:text-base md:text-sm text-xs text-white rounded-full border-[#3633D0] border-[2px] bg-transparent hidden md:flex px-6 py-2">Sports</button>
+                <button class="tracking-wide xl:text-base md:text-sm text-xs text-white rounded-full border-[#3633D0] border-[2px] bg-transparent hidden md:flex px-6 py-2">Photography</button>
+                <button class="tracking-wide xl:text-base md:text-sm text-xs text-white rounded-full border-[#3633D0] border-[2px] bg-transparent hidden md:flex px-6 py-2">Music</button>
+                <button class="tracking-wide xl:text-base md:text-sm text-xs text-white rounded-full border-[#3633D0] border-[2px] bg-transparent hidden md:flex px-6 py-2">Virtual Worlds</button>
+                <button class="tracking-wide xl:text-base md:text-sm text-xs text-white rounded-full border-[#3633D0] border-[2px] bg-transparent hidden md:flex px-6 py-2">Trading Cards</button>
+                <button class="tracking-wide xl:text-base md:text-sm text-xs text-white rounded-full border-[#3633D0] border-[2px] bg-transparent flex md:hidden px-6 py-2">+6</button>
             </div>
         </div>
         <main class="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 w-auto h-auto place-items-center justify-between gap-5 flex-wrap">
-            <div class="flex-col group hover:border-white px-4 py-4 md:gap-y-10 gap-y-5 hover:border-[1.5px] rounded-2xl bg-slate-300 bg-opacity-10 backdrop-blur-md transition-all duration-200 justify-center w-auto h-auto flex items-center" v-for="(item, index) in TrendingData" :key="index">
+            <div ref="marketplaceCards" class="flex-col group hover:border-white px-4 py-4 md:gap-y-10 gap-y-5 hover:border-[1.5px] rounded-2xl bg-slate-300 bg-opacity-10 backdrop-blur-md  justify-center w-auto h-auto flex items-center" v-for="(item, index) in marketplaceData" :key="index">
                 <img :src="item.image" class="w-auto rounded-xl z-0 h-auto object-cover object-center"/>
                 <div class="flex justify-between items-center w-full">
                     <div class="flex-col justify-center items-start flex gap-y-1.5">
@@ -31,7 +31,7 @@
                 </div>
             </div>
         </main>
-        <button class="transition-all duration-300 tracking-wide xl:text-base md:text-sm text-xs text-white rounded-full border-[#3633D0] border-[2px] bg-transparent px-6 py-2">View More</button>
+        <button ref="buttonView" class=" tracking-wide xl:text-base md:text-sm text-xs text-white rounded-full border-[#3633D0] border-[2px] bg-transparent px-6 py-2">View More</button>
     </main>
     <div class="absolute -z-10 flex justify-start items-start w-full h-full">
         <div class="rounded-full w-1/3 h-3/6 -mt-96 -ml-12 md:-ml-32 bg-gradient-to-t blur-[120px] from-[#725BDA] to-[#06132D]"></div>
@@ -42,7 +42,91 @@
 </template>
 
 <script setup>
-const TrendingData = [
+
+import { ref, onMounted } from 'vue';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/all';
+
+gsap.registerPlugin(ScrollTrigger)
+
+const tittleSection = ref(null)
+const buttonSection = ref(null)
+const marketplaceCards = ref([])
+const buttonView = ref(null)
+
+const animateOnDekstop = () => {
+    gsap.fromTo(tittleSection.value, {opacity: 0, y: -50}, {opacity: 1, y: 0, duration: 1, delay: 0.3, ease: 'power3.out', scrollTrigger: {
+        trigger: tittleSection.value,
+        start: 'top bottom',
+        end: 'bottom top',
+        scrub: false,
+        toggleActions: 'play reverse play reverse'
+    }}) 
+    gsap.fromTo(buttonSection.value.children, {opacity: 0, y: 50}, {opacity: 1, y: 0, duration: 1, delay: 0.3, ease: 'power3.out', scrollTrigger: {
+        trigger: buttonSection.value.children,
+        start: 'top bottom',
+        end: 'bottom top',
+        scrub: false,
+        toggleActions: 'play reverse play reverse'
+    }})   
+    marketplaceCards.value.forEach(child => {
+        gsap.fromTo(child, {opacity: 0, y: 50}, {opacity: 1, y:0, duration: 1, delay: 0.2, ease: 'power3.out', scrollTrigger: {
+            trigger: child,
+            start: 'top bottom',
+            end: 'bottom top',
+            scrub: false,
+            toggleActions: 'play reverse play reverse'
+        }}) 
+    })
+    gsap.fromTo(buttonView.value, {opacity: 0, y: 50}, {opacity: 1, y: 0, duration: 1, delay: 0.3, ease: 'power3.out', scrollTrigger: {
+        trigger: buttonView.value,
+        start: 'top bottom',
+        end: 'bottom top',
+        scrub: false,
+        toggleActions: 'play reverse play reverse'
+    }})   
+}
+
+const animateOnMobile = () => {
+    gsap.fromTo(tittleSection.value, {opacity: 0, y: 10}, {opacity: 1, y: 0, duration: 1, delay: 0.3, ease: 'power3.out', scrollTrigger: {
+        trigger: tittleSection.value,
+        start: 'top bottom',
+        end: 'bottom top',
+        scrub: false,
+        toggleActions: 'play reverse play reverse'
+    }}) 
+    gsap.fromTo(buttonSection.value, {opacity: 0, y: 10}, {opacity: 1, y: 0, duration: 1, delay: 0.3, ease: 'power3.out', scrollTrigger: {
+        trigger: buttonSection.value,
+        start: 'top bottom',
+        end: 'bottom top',
+        scrub: false,
+        toggleActions: 'play reverse play reverse'
+    }})   
+    marketplaceCards.value.forEach(child => {
+        gsap.fromTo(child, {opacity: 0, y: 10}, {opacity: 1, y:0, duration: 1, delay: 0.2, ease: 'power3.out', scrollTrigger: {
+        trigger: child,
+        start: 'top bottom',
+        end: 'bottom top',
+        scrub: false,
+        toggleActions: 'play reverse play reverse'
+        }}) 
+    })
+    gsap.fromTo(buttonView.value, {opacity: 0, y: 50}, {opacity: 1, y: 0, duration: 1, delay: 0.3, ease: 'power3.out', scrollTrigger: {
+        trigger: buttonView.value,
+        start: 'top bottom',
+        end: 'bottom top',
+        scrub: false,
+        toggleActions: 'play reverse play reverse'
+    }})   
+}
+
+const isDekstop = window.matchMedia("(min-width: 1024px)").matches
+
+onMounted(() => {
+    isDekstop ? animateOnDekstop() : animateOnMobile()
+})
+
+const marketplaceData = [
     {
         image: '/Inception.png',
         author: "Inception",

@@ -7,11 +7,11 @@
     </div>
     <main class="xl:max-w-7xl xl:mx-auto md:p-14 lg:px-16 md:py-24 py-20 xl:px-0 flex flex-col justify-center lg:gap-y-20 gap-y-10 items-center h-full px-5 md:pt-20 pt-16">
         <div class="flex justify-between w-full flex-col lg:flex-row lg:items-start items-center gap-y-5 lg:gap-y-0">
-            <h1 class="xl:text-6xl md:text-4xl text-2xl lg:text-start text-center leading-snug lg:leading-snug font-bold text-white" style="font-family: 'Poppins';">Trending This Week</h1>
-            <p class="xl:text-xl md:text-base text-sm text-slate-400 lg:text-justify text-center max-w-lg" style="font-family: 'Gt Walsheim Pro Light';">Various kinds of Artwork categories that are trending this week. The trend will be reset every week. Don’t miss out on the best artworks every week</p>
+            <h1 ref="leftTopSection"class="xl:text-6xl md:text-4xl text-2xl lg:text-start text-center leading-snug lg:leading-snug font-bold text-white" style="font-family: 'Poppins';">Trending This Week</h1>
+            <p ref="RightTopSection" class="xl:text-xl md:text-base text-sm text-slate-400 lg:text-justify text-center max-w-lg" style="font-family: 'Gt Walsheim Pro Light';">Various kinds of Artwork categories that are trending this week. The trend will be reset every week. Don’t miss out on the best artworks every week</p>
         </div>
         <main class="flex xl:justify-between justify-center items-center w-full h-auto gap-10 flex-wrap mx-auto max-w-5xl">
-            <div class="flex-col justify-center w-auto h-auto flex items-center" v-for="(item, index) in TrendingData" :key="index">
+            <div ref="trendingCards" class="flex-col justify-center w-auto h-auto flex items-center" v-for="(item, index) in TrendingData" :key="index">
                 <img :src="item.image" class="w-11/12 rounded-xl border-[1.5px] border-white relative z-0 h-auto object-cover object-center"/>
                 <div class="flex items-center border-white md:px-6 md:py-4 px-4 py-2 border-[1.5px] md:-mt-20 -mt-10 rounded-lg bg-slate-300 bg-opacity-10 backdrop-blur-md justify-between w-full">
                     <div class="flex-col justify-center items-start flex gap-y-1.5">
@@ -29,6 +29,75 @@
 </template>
 
 <script setup>
+
+import { ref, onMounted } from 'vue';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/all';
+
+gsap.registerPlugin(ScrollTrigger)
+
+const leftTopSection = ref(null)
+const RightTopSection = ref(null)
+const trendingCards = ref([])
+
+const animateOnDekstop = () => {
+    gsap.fromTo(leftTopSection.value, {opacity: 0, y: -50}, {opacity: 1, y: 0, duration: 1, delay: 0.3, ease: 'power3.out', scrollTrigger: {
+        trigger: leftTopSection.value,
+        start: 'top bottom',
+        end: 'bottom top',
+        scrub: false,
+        toggleActions: 'play reverse play reverse'
+    }}) 
+    gsap.fromTo(RightTopSection.value, {opacity: 0, y: 50}, {opacity: 1, y: 0, duration: 1, delay: 0.3, ease: 'power3.out', scrollTrigger: {
+        trigger: RightTopSection.value,
+        start: 'top bottom',
+        end: 'bottom top',
+        scrub: false,
+        toggleActions: 'play reverse play reverse'
+    }})   
+    trendingCards.value.forEach(child => {
+        gsap.fromTo(child, {opacity: 0, y: 50}, {opacity: 1, y:0, duration: 1, delay: 0.2, ease: 'power3.out', scrollTrigger: {
+        trigger: child,
+        start: 'top bottom',
+        end: 'bottom top',
+        scrub: false,
+        toggleActions: 'play reverse play reverse'
+        }}) 
+    })
+}
+
+const animateOnMobile = () => {
+    gsap.fromTo(leftTopSection.value, {opacity: 0, y: 10}, {opacity: 1, y: 0, duration: 1, delay: 0.3, ease: 'power3.out', scrollTrigger: {
+        trigger: leftTopSection.value,
+        start: 'top bottom',
+        end: 'bottom top',
+        scrub: false,
+        toggleActions: 'play reverse play reverse'
+    }}) 
+    gsap.fromTo(RightTopSection.value, {opacity: 0, y: 10}, {opacity: 1, y: 0, duration: 1, delay: 0.3, ease: 'power3.out', scrollTrigger: {
+        trigger: RightTopSection.value,
+        start: 'top bottom',
+        end: 'bottom top',
+        scrub: false,
+        toggleActions: 'play reverse play reverse'
+    }})   
+    trendingCards.value.forEach(child => {
+        gsap.fromTo(child, {opacity: 0, y: 10}, {opacity: 1, y:0, duration: 1, delay: 0.2, ease: 'power3.out', scrollTrigger: {
+        trigger: child,
+        start: 'top bottom',
+        end: 'bottom top',
+        scrub: false,
+        toggleActions: 'play reverse play reverse'
+        }}) 
+    }) 
+}
+
+const isDekstop = window.matchMedia("(min-width: 1024px)").matches
+
+onMounted(() => {
+    isDekstop ? animateOnDekstop() : animateOnMobile()
+})
+
 const TrendingData = [
     {
         image: '/hand.png',
