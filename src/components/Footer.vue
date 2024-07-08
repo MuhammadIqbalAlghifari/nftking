@@ -29,7 +29,7 @@ const footerSentence = ref(null)
 const currentYear = ref(null)
 
 const animateOnDekstop = () => {
-    gsap.fromTo(bgFooter.value, {opacity: 0, y: -50}, {opacity: 1, y: 0, duration: 1, delay: 0.3, ease: 'power3.out', scrollTrigger: {
+    gsap.fromTo(bgFooter.value, {opacity: 0, y: 50}, {opacity: 1, y: 0, duration: 1, delay: 0.3, ease: 'power3.out', scrollTrigger: {
         trigger: bgFooter.value,
         start: 'top bottom',
         end: 'bottom top',
