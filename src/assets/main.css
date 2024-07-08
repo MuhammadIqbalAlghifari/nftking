@@ -1,0 +1,34 @@
+@import './base.css';
+
+@font-face {
+  font-family: 'GT Walsheim Pro Light';
+  src: url('../../font/GTWalsheimPro-Light.woff2') format('woff2'),
+      url('../../font/GTWalsheimPro-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'GT Walsheim Pro Bold';
+  src: url('../../font/GTWalsheimPro-Bold.woff2') format('woff2'),
+      url('../../font/GTWalsheimPro-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'GT Walsheim Pro Regular';
+  src: url('../../font/GTWalsheimPro-Regular.woff2') format('woff2'),
+      url('../../font/GTWalsheimPro-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  font-family: 'Roboto', sans-serif;
+  font-family: 'Inter Variable', sans-serif;
+}
