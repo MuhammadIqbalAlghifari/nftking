@@ -81,7 +81,7 @@ const animateOnMobile = () => {
         scrub: false,
         toggleActions: 'play reverse play reverse'
     }}) 
-    gsap.fromTo(image.value.children, {opacity: 0, y: 50}, {opacity: 1, y: 0, duration: 1, stagger: 0.3, delay: 0.5, ease: 'power3.out', scrollTrigger: {
+    gsap.fromTo(image.value.children, {opacity: 0, y: 50}, {opacity: 1, y: 0, duration: 1, stagger: 0.3, delay: 0.2, ease: 'power3.out', scrollTrigger: {
         trigger: image.value.children,
         start: 'top bottom',
         end: "bottom top",
