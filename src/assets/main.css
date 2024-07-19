@@ -32,3 +32,23 @@ body {
   font-family: 'Roboto', sans-serif;
   font-family: 'Inter Variable', sans-serif;
 }
+
+body {
+  --sb-track-color: #000000;
+  --sb-thumb-color: #725BDA;
+  --sb-size: 11px;
+}
+
+body::-webkit-scrollbar {
+  width: var(--sb-size)
+}
+
+body::-webkit-scrollbar-track {
+  background: var(--sb-track-color);
+  border-radius: 0px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: var(--sb-thumb-color);
+  border-radius: 5px;
+}
